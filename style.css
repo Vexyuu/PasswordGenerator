@@ -1,0 +1,43 @@
+* {
+  font-family: "Lexend";
+}
+
+#main-box {
+  max-width: max-content;
+  border: 3px solid black;
+  border-radius: 30px;
+  margin: 9% auto;
+  padding: 20px;
+  text-align: center;
+}
+
+#returnResultat {
+  box-shadow: 0px 0px 10px gray;
+  margin-bottom: 3vh;
+  visibility: visible;
+}
+
+#box-list-button input[type="checkbox"] {
+  /* display: grid;
+  grid-template-columns: repeat(1, 1fr); */
+  margin: 3vh 0;
+}
+
+#box-list-button input[type="text"] {
+  text-align: center;
+  border: 3px solid black;
+  padding: 5px 30px;
+}
+
+#box-button-generate {
+  margin: 3vh 0;
+}
+
+#button-generate {
+  font-size: 16px;
+  padding: 10px;
+  background-color: rgb(255, 36, 36);
+  border: none;
+  border-radius: 30px;
+  box-shadow: 10px 10px 30px red;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Lexend' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <title>Password Generator
+    </title>
+</head>
+
+<body>
+    <div id="main-box">
+        <h1 id="box-title">Password Generator</h1>
+        <div id="returnResultat">ss</div>
+        <fieldset>
+            <legend style="text-align: left;">Choisissez vos préférences :</legend>
+            <div id="box-list-button">
+                <label for="Majuscule">Inclure les Majuscules</label>
+                <input type="checkbox" id="Majuscule" name="Majuscule" checked /><br>
+                <label for="Minuscule">Inclure les Minuscules</label>
+                <input type="checkbox" id="Minuscule" name="Minuscule" checked /><br>
+                <label for="Nombre">Inclure les Nombres</label>
+                <input type="checkbox" id="Nombre" name="Nombre" /><br>
+                <label for="Symbole">Inclure les Symboles</label>
+                <input type="checkbox" id="Symbole" name="Symbole" /><br>
+                <input type="text" id="longueurPwd" name="longueurPwd" placeholder="Longueur Mot de Passe" />
+            </div>
+        </fieldset>
+        <div id="box-button-generate">
+            <button id="button-generate" onclick="buttonClick()">Générer le Mot de Passe</button>
+        </div>
+    </div>
+</body>
+
+</html>
