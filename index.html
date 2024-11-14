@@ -14,7 +14,8 @@
 <body>
     <div id="main-box">
         <h1 id="box-title">Password Generator</h1>
-        <div id="returnResultat">ss</div>
+        <div id="returnResultat"><i>Password</i></div>
+        <button id="CopierColler" onclick="CopyPast()">Copier le texte</button>
         <div id="progressive-bar" data-min="4" data-max="32">
             <div id="progressive-bar-title" data-length="0">Longueur : <span id="length-value">16</span></div>
             <input id="slider" type="range" min="4" max="32" value="16" />
@@ -24,26 +25,27 @@
             <div id="box-list-button">
                 <div class="option">
                     <label for="Majuscule">Inclure les Majuscules</label>
-                    <input type="checkbox" id="Majuscule" name="Majuscule" checked />
+                    <input type="checkbox" id="Majuscule" class="styled-checkbox" name="Majuscule" checked />
                 </div>
                 <div class="option">
                     <label for="Minuscule">Inclure les Minuscules</label>
-                    <input type="checkbox" id="Minuscule" name="Minuscule" checked />
+                    <input type="checkbox" id="Minuscule" class="styled-checkbox" name="Minuscule" checked />
                 </div>
                 <div class="option">
                     <label for="Nombre">Inclure les Nombres</label>
-                    <input type="checkbox" id="Nombre" name="Nombre" />
+                    <input type="checkbox" id="Nombre" class="styled-checkbox" name="Nombre" />
                 </div>
                 <div class="option">
                     <label for="Symbole">Inclure les Symboles</label>
-                    <input type="checkbox" id="Symbole" name="Symbole" />
+                    <input type="checkbox" id="Symbole" class="styled-checkbox" name="Symbole" />
                 </div>
             </div>
 
         </fieldset>
         <div id="box-button-generate">
-            <button id="button-generate" onclick="buttonClick()">Générer le Mot de Passe</button>
-            <div id="returnErreur"></div>
+            <button id="button-generate" onclick="generatePassword()">
+                Générer le Mot de Passe
+            </button>
         </div>
     </div>
 </body>

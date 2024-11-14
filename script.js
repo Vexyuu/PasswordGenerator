@@ -1,55 +1,77 @@
-var buttonclicked = document.getElementById("button-generate");
-var Resultat = document.getElementById("returnResultat");
-var GetValue = document.getElementById("longueurPwd");
-var Erreur = document.getElementById("returnErreur");
+const button = document.getElementById("button-generate");
+const Resultat = document.getElementById("returnResultat");
+const slider = document.getElementById("slider");
+const lengthValue = document.getElementById("length-value");
 
-// tableau
-const tableau = [
-  {
-    Majuscule: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-  },
-  {
-    Minuscule: "abcdefghijklmnopqrstuvwxyz",
-  },
-  {
-    Nombre: "0123456789",
-  },
-  {
-    Symbole: "!@#$%^&*()_+-={}:<>?",
-  },
-];
+// ----------------------------------------------------------------- //
+// --------------------------Options Table-------------------------- //
+// ----------------------------------------------------------------- //
+const OptionMajuscule = document.getElementById("Majuscule");
+const OptionMinuscule = document.getElementById("Minuscule");
+const OptionNombre = document.getElementById("Nombre");
+const OptionSymbole = document.getElementById("Symbole");
 
-function buttonClick() {
-  document.addEventListener("click", Click);
+const table = {
+  Majuscule: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+  Minuscule: "abcdefghijklmnopqrstuvwxyz",
+  Nombre: "0123456789",
+  Symbole: "!@#$%^&*()_+-={}:<>?",
+};
 
-  var Longueur = GetValue.value;
-  if (Longueur == "") {
-    return MessageErreur();
-  } else {
-    alert(Longueur);
+// ------------------------------------------------------------------ //
+// --------------------------Event Listener-------------------------- //
+// ------------------------------------------------------------------ //
+slider.addEventListener("input", function () {
+  lengthValue.textContent = slider.value;
+});
+
+button.addEventListener("click", buttonClicked);
+
+// ------------------------------------------------------------- //
+// --------------------------Fonctions-------------------------- //
+// ------------------------------------------------------------- //
+
+function generatePassword() {
+  let password = "";
+  const length = slider.value;
+  const ChooseCharactere = [];
+
+  if (OptionMajuscule.checked) ChooseCharactere.push(...table.Majuscule);
+  if (OptionMinuscule.checked) ChooseCharactere.push(...table.Minuscule);
+  if (OptionNombre.checked) ChooseCharactere.push(...table.Nombre);
+  if (OptionSymbole.checked) ChooseCharactere.push(...table.Symbole);
+  if (ChooseCharactere.length === 0) {
+    return ErreurOption();
   }
+
+  for (let i = 0; i < length; i++) {
+    const randomIndex = Math.floor(Math.random() * ChooseCharactere.length);
+    password += ChooseCharactere[randomIndex];
+  }
+  Resultat.style.color = "";
+  Resultat.innerHTML = password;
 }
 
-function Click() {
-  buttonclicked.style.transform = "scale(1.1)";
-  buttonclicked.style.transition = "0.5s";
+function buttonClicked() {
+  button.style.transform = "scale(1.1)";
+  button.style.transition = "0.5s";
+  setTimeout(() => {
+    button.style.transform = "scale(1.0)";
+  }, 100);
 }
 
-function MessageErreur() {
-  Erreur.innerHTML = `<p>Veuillez entrer une longueur</p>`;
+function ErreurOption() {
+  Resultat.innerHTML = "Veuillez sélectionner au moins une option.";
+  Resultat.style.color = "red";
+  Resultat.style.transform = "scale(1.2)";
+  Resultat.style.transition = "0.5s";
+  setTimeout(() => {
+    Resultat.style.transform = "scale(1.0)";
+  }, 100);
 }
-// alert("OUI");
-// var password = generatePassword(GetValue);
-// Resultat.innerHTML = `<p>${password}`;
 
-// var password = "";
-//     var length = parseInt(GetValue);
-//     for (var i = 0; i < length; i++) {
-//       var random = Math.floor(Math.random() * 4);
-//       var random2 = Math.floor(
-//         Math.random() * tableau[random].Majuscule.length
-//       );
-//       password += tableau[random].Majuscule[random2];
-//     }
-//   }
-//   password.innerHTML = `<p>${password}`;
+function CopyPast() {
+  navigator.clipboard.writeText(Resultat.innerHTML).then(() => {
+    Resultat.innerHTML = "Copié !";
+  });
+}

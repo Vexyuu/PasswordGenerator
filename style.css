@@ -2,21 +2,30 @@
   font-family: "Lexend";
 }
 
+body {
+  background-color: #333;
+}
+
 #main-box {
+  background-color: rgb(216, 215, 215);
   position: relative;
-  max-width: max-content;
-  height: auto;
+  max-width: 20%;
   margin: 0 auto;
-  border: 3px solid black;
-  border-radius: 30px;
+  margin-top: 5%;
+  border-radius: 20px;
   padding: 20px;
   text-align: center;
+  box-shadow: 0px 0px 30px rgb(173, 173, 173);
 }
 
 #returnResultat {
   box-shadow: 0px 0px 10px gray;
   margin-bottom: 3vh;
-  visibility: visible;
+  padding: 10px 0px;
+}
+
+#returnResultat i {
+  opacity: 0.3;
 }
 
 #progressive-bar {
@@ -27,7 +36,7 @@
   padding: 10px;
   border: 2px solid #333;
   border-radius: 10px;
-  background-color: #f4f4f4;
+  background-color: rgb(216, 215, 215);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -40,7 +49,7 @@
 
 #slider {
   width: 100%;
-  -webkit-appearance: none; /* Pour supprimer le style par défaut dans Chrome/Safari */
+  -webkit-appearance: none; /* Supprimer le style par défaut de Chrome / Safari */
   appearance: none;
   height: 8px;
   border-radius: 5px;
@@ -75,6 +84,10 @@
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
 
+/* ---------------------------------------------------------- */
+/* ---------------------Options Checkbox--------------------- */
+/* ---------------------------------------------------------- */
+
 #box-list-button .option {
   display: flex;
   justify-content: space-between;
@@ -86,21 +99,27 @@
   margin-right: 10px;
 }
 
-#box-list-button input[type="checkbox"] {
+input[type="checkbox"] {
+  cursor: pointer;
   margin: 0;
 }
+#box-list-button input[type="checkbox"]:checked {
+  background-color: blue;
+}
 
+/* ---------------------------------------------------------- */
+/* --------------------Bouton Generer MDP-------------------- */
+/* ---------------------------------------------------------- */
 #box-button-generate {
   margin: 3vh 0;
 }
 
 #button-generate {
   font-size: 16px;
-  padding: 10px 60px;
+  padding: 10px 50px;
   background-color: rgb(255, 36, 36);
   border: none;
   border-radius: 10px;
-  /* box-shadow: 10px 10px 30px red; */
 }
 
 #button-generate:hover {
@@ -111,6 +130,4 @@
   background-color: rgb(255, 36, 36);
 }
 
-#returnErreur p {
-  margin: none;
-}
+/* BROUILLOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOON */
