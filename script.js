@@ -2,6 +2,8 @@ const button = document.getElementById("button-generate");
 const Resultat = document.getElementById("returnResultat");
 const slider = document.getElementById("slider");
 const lengthValue = document.getElementById("length-value");
+const buttonCP = document.getElementById("CopierColler");
+const CopyPastText = document.getElementById("CopierColler");
 
 // ----------------------------------------------------------------- //
 // --------------------------Options Table-------------------------- //
@@ -25,6 +27,7 @@ slider.addEventListener("input", function () {
   lengthValue.textContent = slider.value;
 });
 
+buttonCP.addEventListener("click", buttonCPClicked);
 button.addEventListener("click", buttonClicked);
 
 // ------------------------------------------------------------- //
@@ -52,14 +55,6 @@ function generatePassword() {
   Resultat.innerHTML = password;
 }
 
-function buttonClicked() {
-  button.style.transform = "scale(1.1)";
-  button.style.transition = "0.5s";
-  setTimeout(() => {
-    button.style.transform = "scale(1.0)";
-  }, 100);
-}
-
 function ErreurOption() {
   Resultat.innerHTML = "Veuillez sélectionner au moins une option.";
   Resultat.style.color = "red";
@@ -73,5 +68,22 @@ function ErreurOption() {
 function CopyPast() {
   navigator.clipboard.writeText(Resultat.innerHTML).then(() => {
     Resultat.innerHTML = "Copié !";
+    CopyPastText.reset();
   });
+}
+
+function buttonClicked() {
+  button.style.transform = "scale(1.2)";
+  button.style.transition = "0.6s";
+  setTimeout(() => {
+    button.style.transform = "scale(1.0)";
+  }, 100);
+}
+
+function buttonCPClicked() {
+  buttonCP.style.transform = "scale(1.2)";
+  buttonCP.style.transition = "0.6s";
+  setTimeout(() => {
+    buttonCP.style.transform = "scale(1.0)";
+  }, 100);
 }
