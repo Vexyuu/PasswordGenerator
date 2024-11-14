@@ -3,10 +3,12 @@
 }
 
 #main-box {
+  position: relative;
   max-width: max-content;
+  height: auto;
+  margin: 0 auto;
   border: 3px solid black;
   border-radius: 30px;
-  margin: 9% auto;
   padding: 20px;
   text-align: center;
 }
@@ -17,16 +19,75 @@
   visibility: visible;
 }
 
-#box-list-button input[type="checkbox"] {
-  /* display: grid;
-  grid-template-columns: repeat(1, 1fr); */
+#progressive-bar {
+  width: 80%;
+  max-width: 400px;
+  margin: 20px auto;
+  text-align: center;
+  padding: 10px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  background-color: #f4f4f4;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#progressive-bar-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+#slider {
+  width: 100%;
+  -webkit-appearance: none; /* Pour supprimer le style par défaut dans Chrome/Safari */
+  appearance: none;
+  height: 8px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #ff5733, #ffc300, #81ff33, #52d103);
+  outline: none;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+
+#slider:hover {
+  opacity: 1;
+}
+
+#slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: black;
+  cursor: pointer;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+#slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: black;
+  cursor: pointer;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+#box-list-button .option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin: 3vh 0;
 }
 
-#box-list-button input[type="text"] {
-  text-align: center;
-  border: 3px solid black;
-  padding: 5px 30px;
+#box-list-button label {
+  margin-right: 10px;
+}
+
+#box-list-button input[type="checkbox"] {
+  margin: 0;
 }
 
 #box-button-generate {
@@ -35,9 +96,21 @@
 
 #button-generate {
   font-size: 16px;
-  padding: 10px;
+  padding: 10px 60px;
   background-color: rgb(255, 36, 36);
   border: none;
-  border-radius: 30px;
-  box-shadow: 10px 10px 30px red;
+  border-radius: 10px;
+  /* box-shadow: 10px 10px 30px red; */
+}
+
+#button-generate:hover {
+  background-color: rgb(228, 84, 84);
+}
+
+#button-generate:focus {
+  background-color: rgb(255, 36, 36);
+}
+
+#returnErreur p {
+  margin: none;
 }

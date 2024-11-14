@@ -15,24 +15,39 @@
     <div id="main-box">
         <h1 id="box-title">Password Generator</h1>
         <div id="returnResultat">ss</div>
+        <div id="progressive-bar" data-min="4" data-max="32">
+            <div id="progressive-bar-title" data-length="0">Longueur : <span id="length-value">16</span></div>
+            <input id="slider" type="range" min="4" max="32" value="16" />
+        </div>
         <fieldset>
             <legend style="text-align: left;">Choisissez vos préférences :</legend>
             <div id="box-list-button">
-                <label for="Majuscule">Inclure les Majuscules</label>
-                <input type="checkbox" id="Majuscule" name="Majuscule" checked /><br>
-                <label for="Minuscule">Inclure les Minuscules</label>
-                <input type="checkbox" id="Minuscule" name="Minuscule" checked /><br>
-                <label for="Nombre">Inclure les Nombres</label>
-                <input type="checkbox" id="Nombre" name="Nombre" /><br>
-                <label for="Symbole">Inclure les Symboles</label>
-                <input type="checkbox" id="Symbole" name="Symbole" /><br>
-                <input type="text" id="longueurPwd" name="longueurPwd" placeholder="Longueur Mot de Passe" />
+                <div class="option">
+                    <label for="Majuscule">Inclure les Majuscules</label>
+                    <input type="checkbox" id="Majuscule" name="Majuscule" checked />
+                </div>
+                <div class="option">
+                    <label for="Minuscule">Inclure les Minuscules</label>
+                    <input type="checkbox" id="Minuscule" name="Minuscule" checked />
+                </div>
+                <div class="option">
+                    <label for="Nombre">Inclure les Nombres</label>
+                    <input type="checkbox" id="Nombre" name="Nombre" />
+                </div>
+                <div class="option">
+                    <label for="Symbole">Inclure les Symboles</label>
+                    <input type="checkbox" id="Symbole" name="Symbole" />
+                </div>
             </div>
+
         </fieldset>
         <div id="box-button-generate">
             <button id="button-generate" onclick="buttonClick()">Générer le Mot de Passe</button>
+            <div id="returnErreur"></div>
         </div>
     </div>
 </body>
 
 </html>
+
+<!-- <input type="text" id="longueurPwd" name="longueurPwd" placeholder="Longueur Mot de Passe" /> -->
